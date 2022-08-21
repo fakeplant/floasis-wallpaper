@@ -20,7 +20,7 @@ import {
   Title,
   useMantineTheme,
 } from "@mantine/core";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FloasisLogo from "../components/logo";
 
 const Home: NextPage = () => {
@@ -44,6 +44,23 @@ const Home: NextPage = () => {
 
   // ref
   const ref = React.useRef<HTMLDivElement>(null);
+  const imgRef = React.useRef<HTMLImageElement>(null);
+
+  // png
+  useEffect(() => {
+    if (!ref.current || !imgRef.current) return;
+    htmlToImage
+      .toPng(ref.current)
+      .then(function (dataUrl) {
+        // @ts-ignore
+        const img = imgRef.current;
+        // @ts-ignore
+        img.src = dataUrl;
+      })
+      .catch(function (error) {
+        console.error("oops, something went wrong!", error);
+      });
+  }, [fromColor, toColor, degrees, fillColor, name]);
 
   return (
     <Box
@@ -63,15 +80,24 @@ const Home: NextPage = () => {
         <meta name="viewport" content="width=device-width, user-scalable=no" />
       </Head>
 
+      <Box sx={{ width: "100%", height: "100%" }}>
+        <img
+          ref={imgRef}
+          src={""}
+          alt="wallpaper"
+          style={{ objectFit: "contain", width: "100%", height: "100%" }}
+        />
+      </Box>
+
       <Box
         sx={{
-          height: "90vh",
-          width: "50.625vh",
-          maxWidth: "90vw",
-          maxHeight: "160vw",
+          height: "100vh",
+          width: "56.25vh",
+          maxWidth: "100vw",
+          maxHeight: "177.77vw",
           margin: "auto",
           position: "absolute",
-          top: "0",
+          top: "-111111110px",
           left: "0",
           right: "0",
           bottom: "0",
@@ -82,6 +108,7 @@ const Home: NextPage = () => {
           shadow="sm"
           sx={{
             background: theme.fn.gradient(gradient),
+            position: "relative",
             width: "100%",
             height: "100%",
           }}
@@ -132,29 +159,11 @@ const Home: NextPage = () => {
         </Card>
       </Box>
 
-      <Affix position={{ bottom: 20, left: 20 }}>
-        <Button
-          variant="default"
-          onClick={() => {
-            if (!ref.current) return;
-            htmlToImage
-              .toBlob(ref.current)
-              .then(function (blob) {
-                // @ts-ignore
-                let url = window.URL.createObjectURL(blob);
-                let a = document.createElement("a");
-                a.href = url;
-                a.download = "wallpaper.png";
-                a.click();
-              })
-              .catch(function (error) {
-                console.error("oops, something went wrong!", error);
-              });
-          }}
-        >
-          Download
-        </Button>
-      </Affix>
+      {/*<Affix position={{ bottom: 20, left: 20 }}>*/}
+      {/*  <Button variant="default" onClick={() => {}}>*/}
+      {/*    Download*/}
+      {/*  </Button>*/}
+      {/*</Affix>*/}
 
       <Affix position={{ bottom: 20, right: 20 }}>
         <Popover>
