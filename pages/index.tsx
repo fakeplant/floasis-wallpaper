@@ -34,6 +34,8 @@ const Home: NextPage = () => {
   const [degrees, setDegrees] = useState(45);
   const [fillColor, setFillColor] = useState("#ffffff");
   const [name, setName] = useState("First Last");
+  const [contact1, setContact1] = useState("");
+  const [contact2, setContact2] = useState("");
 
   // gradient
   const gradient: MantineGradient = {
@@ -60,7 +62,7 @@ const Home: NextPage = () => {
       .catch(function (error) {
         console.error("oops, something went wrong!", error);
       });
-  }, [fromColor, toColor, degrees, fillColor, name]);
+  }, [fromColor, toColor, degrees, fillColor, name, contact1, contact2]);
 
   return (
     <Box
@@ -130,11 +132,12 @@ const Home: NextPage = () => {
                 color: fillColor,
                 display: "block",
                 width: "100%",
-                marginBottom: "1rem",
+                marginBottom: "0.5rem",
               }}
             >
               {name}
             </Text>
+            {name && <Divider color="white" sx={{ width: "50%" }} />}
             <Box sx={{ width: "100%" }}>
               <Text
                 align="center"
@@ -162,6 +165,39 @@ const Home: NextPage = () => {
                 4:30 & G
               </Text>
             </Box>
+            {(contact1 || contact2) && (
+              <>
+                <Divider color="white" sx={{ width: "50%" }} />
+                <Box sx={{ width: "100%" }}>
+                  {contact1 && (
+                    <Text
+                      align="center"
+                      sx={{
+                        fontSize: "5.5vw",
+                        color: fillColor,
+                        display: "block",
+                        width: "100%",
+                      }}
+                    >
+                      {contact1}
+                    </Text>
+                  )}
+                  {contact2 && (
+                    <Text
+                      align="center"
+                      sx={{
+                        fontSize: "5.5vw",
+                        color: fillColor,
+                        display: "block",
+                        width: "100%",
+                      }}
+                    >
+                      {contact2}
+                    </Text>
+                  )}
+                </Box>
+              </>
+            )}
           </Stack>
         </Card>
       </Box>
@@ -207,7 +243,20 @@ const Home: NextPage = () => {
             <Divider />
             <TextInput
               value={name}
+              placeholder={"Your Name"}
               onChange={(e) => setName(e.currentTarget.value)}
+              p="xs"
+            />
+            <TextInput
+              value={contact1}
+              placeholder={"1.555.555.5555"}
+              onChange={(e) => setContact1(e.currentTarget.value)}
+              p="xs"
+            />
+            <TextInput
+              value={contact2}
+              placeholder={"email@address.com"}
+              onChange={(e) => setContact2(e.currentTarget.value)}
               p="xs"
             />
           </Popover.Dropdown>
