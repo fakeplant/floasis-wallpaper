@@ -1,35 +1,26 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import * as htmlToImage from "html-to-image";
-import { toPng, toJpeg, toBlob, toPixelData, toSvg } from "html-to-image";
 
 import {
-  AspectRatio,
-  Box,
-  Card,
-  Popover,
-  ColorPicker,
-  Text,
-  Container,
-  Grid,
-  Group,
-  Paper,
-  useMantineTheme,
-  ActionIcon,
-  MantineGradient,
-  Button,
   Affix,
-  Drawer,
-  Stack,
-  Title,
+  Box,
+  Button,
+  Card,
+  ColorPicker,
   Divider,
-  Space,
+  Drawer,
+  MantineGradient,
+  Popover,
   Slider,
+  Space,
+  Stack,
+  Text,
   TextInput,
+  Title,
+  useMantineTheme,
 } from "@mantine/core";
 import React, { useState } from "react";
-import Logo from "../components/logo";
 import FloasisLogo from "../components/logo";
 
 const Home: NextPage = () => {
@@ -69,6 +60,7 @@ const Home: NextPage = () => {
         <title>Floasis</title>
         <meta name="description" content="Generate a camp wallpaper." />
         <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
       </Head>
 
       <Box
@@ -97,19 +89,42 @@ const Home: NextPage = () => {
           <Stack align="center" justify="center" sx={{ height: "100%" }}>
             <FloasisLogo fill={fillColor} />
             {/*<FloasisOrnament fill={fillColor} />*/}
-            <Title align="center" order={1} sx={{ color: fillColor }}>
+            <Text
+              align="center"
+              weight="bold"
+              sx={{
+                fontSize: "3.5vw",
+                color: fillColor,
+                display: "block",
+                width: "100%",
+              }}
+            >
               {name}
-            </Title>
-            <Box>
-              <Title
+            </Text>
+            <Box sx={{ width: "100%" }}>
+              <Text
                 align="center"
                 transform="uppercase"
-                order={5}
-                sx={{ color: fillColor, margin: 0 }}
+                weight="bold"
+                sx={{
+                  fontSize: "1.95vw",
+                  color: fillColor,
+                  margin: 0,
+                  display: "block",
+                  width: "100%",
+                }}
               >
                 Floasis
-              </Title>
-              <Text align="center" sx={{ color: fillColor }}>
+              </Text>
+              <Text
+                align="center"
+                sx={{
+                  fontSize: "1.95vw",
+                  color: fillColor,
+                  display: "block",
+                  width: "100%",
+                }}
+              >
                 4:30 & G
               </Text>
             </Box>
