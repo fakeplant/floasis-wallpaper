@@ -138,7 +138,9 @@ const Home: NextPage = () => {
               {name}
             </Text>
             {name && (
-              <Divider color="white" sx={{ width: "50%", margin: "5px 25%" }} />
+              <Divider
+                sx={{ width: "50%", margin: "5px 25%", borderColor: fillColor }}
+              />
             )}
             <Box sx={{ width: "100%" }}>
               <Text
@@ -170,8 +172,11 @@ const Home: NextPage = () => {
             {(contact1 || contact2) && (
               <>
                 <Divider
-                  color="white"
-                  sx={{ width: "50%", margin: "5px 25%" }}
+                  sx={{
+                    width: "50%",
+                    margin: "5px 25%",
+                    borderColor: fillColor,
+                  }}
                 />
                 <Box sx={{ width: "100%" }}>
                   {contact1 && (
