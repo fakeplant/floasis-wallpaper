@@ -92,9 +92,9 @@ const Home: NextPage = () => {
       <Box
         sx={{
           height: "100vh",
-          width: "56.25vh",
-          maxWidth: "100vw",
-          maxHeight: "177.77vw",
+          width: "100vw",
+          // maxWidth: "100vw",
+          // maxHeight: "177.77vw",
           margin: "auto",
           position: "absolute",
           top: "-111111110px",
@@ -113,17 +113,24 @@ const Home: NextPage = () => {
             height: "100%",
           }}
         >
-          <Stack align="center" justify="center" sx={{ height: "100%" }}>
+          <Stack
+            align="center"
+            justify="center"
+            sx={{ height: "100%" }}
+            spacing="xs"
+          >
             <FloasisLogo fill={fillColor} />
             {/*<FloasisOrnament fill={fillColor} />*/}
             <Text
               align="center"
               weight="bold"
               sx={{
-                fontSize: "3.5vw",
+                fontSize: "12vw",
+                lineHeight: "1",
                 color: fillColor,
                 display: "block",
                 width: "100%",
+                marginBottom: "1rem",
               }}
             >
               {name}
@@ -134,7 +141,7 @@ const Home: NextPage = () => {
                 transform="uppercase"
                 weight="bold"
                 sx={{
-                  fontSize: "1.95vw",
+                  fontSize: "5.5vw",
                   color: fillColor,
                   margin: 0,
                   display: "block",
@@ -146,7 +153,7 @@ const Home: NextPage = () => {
               <Text
                 align="center"
                 sx={{
-                  fontSize: "1.95vw",
+                  fontSize: "5.5vw",
                   color: fillColor,
                   display: "block",
                   width: "100%",
