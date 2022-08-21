@@ -173,7 +173,7 @@ const Home: NextPage = () => {
       {/*</Affix>*/}
 
       <Affix position={{ bottom: 20, right: 20 }}>
-        <Popover>
+        <Popover position="left-end">
           <Popover.Target>
             <Button
               variant="default"
