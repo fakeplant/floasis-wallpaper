@@ -209,7 +209,7 @@ const Home: NextPage = () => {
       {/*</Affix>*/}
 
       <Affix position={{ bottom: 20, right: 20 }}>
-        <Popover position="left-end">
+        <Popover>
           <Popover.Target>
             <Button
               variant="default"
@@ -262,7 +262,7 @@ const Home: NextPage = () => {
           </Popover.Dropdown>
         </Popover>
         <Space h="xs" />
-        <Popover position="left-end">
+        <Popover>
           <Popover.Target>
             <Button
               variant="default"
