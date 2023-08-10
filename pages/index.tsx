@@ -3,6 +3,7 @@ import Head from "next/head";
 import * as htmlToImage from "html-to-image";
 
 import {
+  ActionIcon,
   Affix,
   Box,
   Button,
@@ -23,6 +24,7 @@ import {
 import React, { useEffect, useState } from "react";
 import TeLogo from "../components/logo";
 import Squiggle from "../components/squiggle";
+import { IconAdjustments, IconHelp, IconHelpSmall } from "@tabler/icons-react";
 
 const Home: NextPage = () => {
   // theme
@@ -35,6 +37,8 @@ const Home: NextPage = () => {
   const [degrees, setDegrees] = useState(45);
   const [fillColor, setFillColor] = useState("#ffffff");
   const [name, setName] = useState("First Last");
+  const [camp, setCamp] = useState("TITANIC'S END");
+  const [location, setLocation] = useState("9:45 & J");
   const [contact1, setContact1] = useState("");
   const [contact2, setContact2] = useState("");
 
@@ -163,8 +167,7 @@ const Home: NextPage = () => {
                   width: "100%",
                 }}
               >
-                {/* eslint-disable-next-line react/no-unescaped-entities */}
-                Titanic's End
+                {camp}
               </Text>
               <Text
                 align="center"
@@ -175,7 +178,7 @@ const Home: NextPage = () => {
                   width: "100%",
                 }}
               >
-                9:45 & J
+                {location}
               </Text>
             </Box>
             {(contact1 || contact2) && (
@@ -228,6 +231,25 @@ const Home: NextPage = () => {
       {/*  </Button>*/}
       {/*</Affix>*/}
 
+      <Affix position={{ bottom: 20, left: 20 }}>
+        <Popover width={200}>
+          <Popover.Target>
+            <ActionIcon color="dark" size="lg" radius="xl" variant="default">
+              <IconHelpSmall size="2rem" />
+            </ActionIcon>
+          </Popover.Target>
+          <Popover.Dropdown>
+            <Text weight="700" size="sm">
+              Save Image
+            </Text>
+            <Text size="sm">
+              It's easy. Touch and hold the background image and save it to your
+              photos.
+            </Text>
+          </Popover.Dropdown>
+        </Popover>
+      </Affix>
+
       <Affix position={{ bottom: 20, right: 20 }}>
         <Popover>
           <Popover.Target>
@@ -265,6 +287,18 @@ const Home: NextPage = () => {
               value={name}
               placeholder={"Your Name"}
               onChange={(e) => setName(e.currentTarget.value)}
+              p="xs"
+            />
+            <TextInput
+              value={camp}
+              placeholder={"Camp"}
+              onChange={(e) => setCamp(e.currentTarget.value)}
+              p="xs"
+            />
+            <TextInput
+              value={location}
+              placeholder={"Camp Location"}
+              onChange={(e) => setLocation(e.currentTarget.value)}
               p="xs"
             />
             <TextInput
