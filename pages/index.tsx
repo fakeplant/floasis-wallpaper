@@ -119,6 +119,7 @@ const Home: NextPage = () => {
             position: "relative",
             width: "100%",
             height: "100%",
+            padding: "20% 1rem 20% 1rem !important",
           }}
         >
           <Stack
