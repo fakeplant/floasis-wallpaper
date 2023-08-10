@@ -104,7 +104,7 @@ const Home: NextPage = () => {
           // maxHeight: "177.77vw",
           margin: "auto",
           position: "absolute",
-          // top: "-111111110px",
+          top: "-111111110px",
           left: "0",
           right: "0",
           bottom: "0",
