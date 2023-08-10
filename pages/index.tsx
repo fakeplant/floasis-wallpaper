@@ -39,8 +39,7 @@ const Home: NextPage = () => {
   const [name, setName] = useState("First Last");
   const [camp, setCamp] = useState("TITANIC'S END");
   const [location, setLocation] = useState("9:45 & J");
-  const [contact1, setContact1] = useState("");
-  const [contact2, setContact2] = useState("");
+  const [contact, setContact] = useState("");
 
   // gradient
   const gradient: MantineGradient = {
@@ -67,7 +66,7 @@ const Home: NextPage = () => {
       .catch(function (error) {
         console.error("oops, something went wrong!", error);
       });
-  }, [fromColor, toColor, degrees, fillColor, name, contact1, contact2]);
+  }, [fromColor, toColor, degrees, fillColor, name, camp, location, contact]);
 
   return (
     <Box
@@ -105,7 +104,7 @@ const Home: NextPage = () => {
           // maxHeight: "177.77vw",
           margin: "auto",
           position: "absolute",
-          top: "-111111110px",
+          // top: "-111111110px",
           left: "0",
           right: "0",
           bottom: "0",
@@ -145,7 +144,7 @@ const Home: NextPage = () => {
             >
               {name}
             </Text>
-            {name && (
+            {name && (camp || location) && (
               <Box
                 sx={{
                   width: "80%",
@@ -161,7 +160,7 @@ const Home: NextPage = () => {
                 transform="uppercase"
                 weight="bold"
                 sx={{
-                  fontSize: "5.5vw",
+                  fontSize: "5.25vw",
                   color: fillColor,
                   margin: 0,
                   display: "block",
@@ -173,7 +172,7 @@ const Home: NextPage = () => {
               <Text
                 align="center"
                 sx={{
-                  fontSize: "5.5vw",
+                  fontSize: "5.25vw",
                   color: fillColor,
                   display: "block",
                   width: "100%",
@@ -182,41 +181,30 @@ const Home: NextPage = () => {
                 {location}
               </Text>
             </Box>
-            {(contact1 || contact2) && (
+            {contact && (
               <>
-                <Box
-                  sx={{
-                    width: "80%",
-                    opacity: 1,
-                  }}
-                >
-                  <Squiggle stroke={fillColor} />
-                </Box>
-                <Box sx={{ width: "100%" }}>
-                  {contact1 && (
+                {contact && (name || camp || location) && (
+                  <Box
+                    sx={{
+                      width: "80%",
+                      opacity: 1,
+                    }}
+                  >
+                    <Squiggle stroke={fillColor} />
+                  </Box>
+                )}
+                <Box sx={{ width: "70%" }}>
+                  {contact && (
                     <Text
                       align="center"
                       sx={{
-                        fontSize: "5.5vw",
+                        fontSize: "4.5vw",
                         color: fillColor,
                         display: "block",
                         width: "100%",
                       }}
                     >
-                      {contact1}
-                    </Text>
-                  )}
-                  {contact2 && (
-                    <Text
-                      align="center"
-                      sx={{
-                        fontSize: "5.5vw",
-                        color: fillColor,
-                        display: "block",
-                        width: "100%",
-                      }}
-                    >
-                      {contact2}
+                      {contact}
                     </Text>
                   )}
                 </Box>
@@ -304,15 +292,9 @@ const Home: NextPage = () => {
               p="xs"
             />
             <TextInput
-              value={contact1}
+              value={contact}
               placeholder={"1.555.555.5555"}
-              onChange={(e) => setContact1(e.currentTarget.value)}
-              p="xs"
-            />
-            <TextInput
-              value={contact2}
-              placeholder={"email@address.com"}
-              onChange={(e) => setContact2(e.currentTarget.value)}
+              onChange={(e) => setContact(e.currentTarget.value)}
               p="xs"
             />
           </Popover.Dropdown>
