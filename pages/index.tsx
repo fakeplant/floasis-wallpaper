@@ -244,6 +244,7 @@ const Home: NextPage = () => {
               Save Image
             </Text>
             <Text size="sm">
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
               It's easy. Touch and hold the background image and save it to your
               photos.
             </Text>
