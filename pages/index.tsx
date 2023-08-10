@@ -21,7 +21,7 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import React, { useEffect, useState } from "react";
-import FloasisLogo from "../components/logo";
+import TeLogo from "../components/logo";
 
 const Home: NextPage = () => {
   // theme
@@ -76,7 +76,7 @@ const Home: NextPage = () => {
       }}
     >
       <Head>
-        <title>Floasis</title>
+        <title>Titanic's End</title>
         <meta name="description" content="Generate a camp wallpaper." />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
@@ -120,14 +120,15 @@ const Home: NextPage = () => {
             justify="center"
             sx={{ height: "100%" }}
             spacing="xs"
+            mx="xl"
           >
-            <FloasisLogo fill={fillColor} />
+            <TeLogo fill={fillColor} />
             {/*<FloasisOrnament fill={fillColor} />*/}
             <Text
               align="center"
               weight="bold"
               sx={{
-                fontSize: "12vw",
+                fontSize: "10vw",
                 lineHeight: "1",
                 color: fillColor,
                 display: "block",
@@ -155,7 +156,7 @@ const Home: NextPage = () => {
                   width: "100%",
                 }}
               >
-                Floasis
+                Titanic's End
               </Text>
               <Text
                 align="center"
@@ -166,7 +167,7 @@ const Home: NextPage = () => {
                   width: "100%",
                 }}
               >
-                4:30 & G
+                9:45 & J
               </Text>
             </Box>
             {(contact1 || contact2) && (
