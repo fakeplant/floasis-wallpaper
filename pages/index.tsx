@@ -22,6 +22,7 @@ import {
 } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 import TeLogo from "../components/logo";
+import Squiggle from "../components/squiggle";
 
 const Home: NextPage = () => {
   // theme
@@ -78,7 +79,7 @@ const Home: NextPage = () => {
       <Head>
         <title>Titanic's End</title>
         <meta name="description" content="Generate a camp wallpaper." />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
       </Head>
 
@@ -139,9 +140,14 @@ const Home: NextPage = () => {
               {name}
             </Text>
             {name && (
-              <Divider
-                sx={{ width: "50%", margin: "5px 25%", borderColor: fillColor }}
-              />
+              <Box
+                sx={{
+                  width: "80%",
+                  opacity: 1,
+                }}
+              >
+                <Squiggle stroke={fillColor} />
+              </Box>
             )}
             <Box sx={{ width: "100%" }}>
               <Text
@@ -172,13 +178,14 @@ const Home: NextPage = () => {
             </Box>
             {(contact1 || contact2) && (
               <>
-                <Divider
+                <Box
                   sx={{
-                    width: "50%",
-                    margin: "5px 25%",
-                    borderColor: fillColor,
+                    width: "80%",
+                    opacity: 1,
                   }}
-                />
+                >
+                  <Squiggle stroke={fillColor} />
+                </Box>
                 <Box sx={{ width: "100%" }}>
                   {contact1 && (
                     <Text
