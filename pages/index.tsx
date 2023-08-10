@@ -77,6 +77,7 @@ const Home: NextPage = () => {
       }}
     >
       <Head>
+        {/* eslint-disable-next-line react/no-unescaped-entities */}
         <title>Titanic's End</title>
         <meta name="description" content="Generate a camp wallpaper." />
         <link rel="icon" href="/favicon.png" />
@@ -162,6 +163,7 @@ const Home: NextPage = () => {
                   width: "100%",
                 }}
               >
+                {/* eslint-disable-next-line react/no-unescaped-entities */}
                 Titanic's End
               </Text>
               <Text
