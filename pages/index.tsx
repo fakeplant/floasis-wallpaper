@@ -38,7 +38,7 @@ const Home: NextPage = () => {
   const [fillColor, setFillColor] = useState("#ffffff");
   const [name, setName] = useState("First Last");
   const [camp, setCamp] = useState("TITANIC'S END");
-  const [location, setLocation] = useState("9:45 & J");
+  const [location, setLocation] = useState("9:45 & I");
   const [contact, setContact] = useState("");
 
   // gradient
