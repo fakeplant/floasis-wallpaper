@@ -13,6 +13,7 @@ import {
   Drawer,
   MantineGradient,
   Popover,
+  SegmentedControl,
   Slider,
   Space,
   Stack,
@@ -22,9 +23,10 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import React, { useEffect, useState } from "react";
-import TeLogo from "../components/logo";
+import TeLogo from "../components/TeLogo";
 import Squiggle from "../components/squiggle";
 import { IconAdjustments, IconHelp, IconHelpSmall } from "@tabler/icons-react";
+import MothershipLogo from "../components/MothershipLogo";
 
 const Home: NextPage = () => {
   // theme
@@ -40,6 +42,7 @@ const Home: NextPage = () => {
   const [camp, setCamp] = useState("TITANIC'S END");
   const [location, setLocation] = useState("10:00 & F");
   const [contact, setContact] = useState("");
+  const [logo, setLogo] = useState("te"); // te | mothership
 
   // gradient
   const gradient: MantineGradient = {
@@ -66,7 +69,17 @@ const Home: NextPage = () => {
       .catch(function (error) {
         console.error("oops, something went wrong!", error);
       });
-  }, [fromColor, toColor, degrees, fillColor, name, camp, location, contact]);
+  }, [
+    fromColor,
+    toColor,
+    degrees,
+    fillColor,
+    name,
+    camp,
+    location,
+    contact,
+    logo,
+  ]);
 
   return (
     <Box
@@ -128,8 +141,8 @@ const Home: NextPage = () => {
             spacing="xs"
             mx="xl"
           >
-            <TeLogo fill={fillColor} />
-            {/*<FloasisOrnament fill={fillColor} />*/}
+            {logo === "te" && <TeLogo fill={fillColor} />}
+            {logo === "mothership" && <MothershipLogo fill={fillColor} />}
             <Text
               align="center"
               weight="bold"
@@ -273,6 +286,17 @@ const Home: NextPage = () => {
               p="xs"
             />
             <Divider />
+            <SegmentedControl
+              value={logo}
+              onChange={(v) => setLogo(v)}
+              data={[
+                { label: "TE", value: "te" },
+                { label: "Mothership", value: "mothership" },
+              ]}
+              fullWidth
+              size="xs"
+              mb="xs"
+            />
             <TextInput
               value={name}
               placeholder={"Your Name"}
