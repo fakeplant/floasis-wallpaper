@@ -95,7 +95,7 @@ const Home: NextPage = () => {
       <Head>
         {/* eslint-disable-next-line react/no-unescaped-entities */}
         <title>Titanic's End</title>
-        <meta name="description" content="Generate a camp wallpaper." />
+        <meta name="description" content="Generate a new camp wallpaper." />
         <link rel="icon" href="/favicon.png" />
         <meta name="viewport" content="width=device-width, user-scalable=no" />
       </Head>
